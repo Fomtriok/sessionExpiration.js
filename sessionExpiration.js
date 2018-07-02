@@ -6,7 +6,7 @@
  ░░░░ HOW TO USE ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
  * sessionExpiration.js is a lightweight session expiration tool. Simply include this JS file, and then call as:
  * sessionExpiration(idleMinutes = 1, warningMinutes = 0.5, logoutUrl = 'http://localhost/path/to/logout');
- * It works across all tabs in the browser.
+ * It works across all tabs in the browser (that are part of your domain), that you call this function from.
  ******************************************************************************************************************/
 
 /******************************************************************************************************************
