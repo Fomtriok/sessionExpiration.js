@@ -7,7 +7,7 @@ It works across all tabs in the browser. The user won't be logged out as long as
 
 1. Include the JS in your markup on all pages that are to be subjected to sessionExpiration. (Thus, it is preferable to include the JS in your footer.) If you exclude one page, then the user will be logged out if another page (with this function) is open in another tab, but the user is merely using the page without this function. **sessionExpiration.js only notices the activity of a user on those pages that have the function called.**
 
-2. Create a div with id "sessExpirDiv" somewhere on each page that will be subject to sessionExpiration (preferably in your footer or header).
+2. Create a div with id "sessExpirDiv" somewhere on each page that will be subject to sessionExpiration (preferably in your footer or header). This will contain the warning message and countdown to logout.
 
 3. Put the CSS (or redesign it to your liking) which you find as a comment in the JS file - providing design of the warning message and countdown.
 
