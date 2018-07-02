@@ -1,7 +1,8 @@
 # sessionExpiration.js
 A lightweight session expiration tool in pure JS without any dependencies.
 
-It works across all tabs in the browser (that are part of your domain), that you call this function from. The user won't be logged out as long as at least some (of those) tabs is being regularly used.
+* Works across all tabs in the browser (that are part of your domain), that you call this function from. The user won't be logged out as long as at least some (of those) tabs is being regularly used.
+* Includes countdown and warning to move in order to remain logged in.
 
 ### How to use:
 
