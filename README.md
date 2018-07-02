@@ -31,3 +31,7 @@ A lightweight session expiration tool in pure JS without any dependencies.
 ```
 sessionExpiration(idleMinutes = 1, warningMinutes = 0.5, logoutUrl = 'http://localhost/path/to/logout');
 ```
+
+This is an example of what it looks like in action, if you don't change the CSS:
+
+![alt text](https://i.stack.imgur.com/z0d2n.png)
