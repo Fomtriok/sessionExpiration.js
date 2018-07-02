@@ -5,7 +5,13 @@ It works across all tabs in the browser. The user won't be logged out as long as
 
 ### How to use:
 
-Simply include the JS in your markup. Then call the function along with the arguments [1] number of minutes the user is allowed to be idle, [2] number of minutes the user is allowed to be idle before the warning and countdown begins, [3] the url for your server side logout.
+1. Include the JS in your markup on all pages that are to be subjected to sessionExpiration. (Thus, it is preferable to include the JS in your footer.) If you exclude one page, then the user will be logged out if another page (with this function) is open in another tab, but the user is merely using the page without this function. **sessionExpiration.js only notices the activity of a user on those pages that have the function called.**
+
+2. Create a div with id "sessExpirDiv" somewhere on each page that will be subject to sessionExpiration (preferably in your footer or header).
+
+3. Put the CSS (or redesign it to your liking) which you find as a comment in the JS file - providing design of the warning message and countdown.
+
+4. Call the function (from each page you included the script in, thus also; preferably from your footer) along with the arguments [1] number of minutes the user is allowed to be idle, [2] number of minutes the user is allowed to be idle before the warning and countdown begins, [3] the url for your server side logout.
 
 ```
 sessionExpiration(idleMinutes = 1, warningMinutes = 0.5, logoutUrl = 'http://localhost/logout');
