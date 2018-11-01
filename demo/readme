@@ -1,0 +1,5 @@
+This is a simple demo.
+
+For it to work, you only have to set the correct paths to sessionExpiration.js, and to logout.html, in logged_in_page_1 and/or logged_in_page_2.
+
+Let me know if you encounter any problems.
