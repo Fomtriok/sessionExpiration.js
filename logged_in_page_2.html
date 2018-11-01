@@ -1,0 +1,81 @@
+<!-- Include header. But to make the demo easier we have a copy of the code. -->
+<!DOCTYPE HTML>
+
+<html lang='en'>
+
+<head>
+  <title>sessExp Demo</title>
+  <meta charset='utf-8'>
+  <style>
+    #sessExpirDiv {
+      border: none;
+      background-color: #FF6666;
+      color: #FFF;
+      font-family: 'Lato', Arial;
+      margin: 0px;
+      font-size: 18px;
+      line-height: 18px;
+      position: fixed;
+      width: 100%;
+      height: 54px;
+      text-align: center;
+      z-index: -999999;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      -webkit-transition: all 1s ease;
+      transition: all 1s ease;
+    }
+    #sessExpirP {
+      margin-top: 16px;
+      padding: 0px;
+    }
+    .demoh2 {
+      font-family: Verdana;
+      color: #474747;
+    }
+    .demoP {
+      width: 30%;
+      margin-left: 35%;
+      font-size: 18px;
+      font-family: Verdana;
+      color: #474747;
+    }
+  </style>
+</head>
+
+<body>
+
+<div id="sessExpirDiv">
+</div>
+
+<h2 align="center" class="demoh2">
+  You are now logged in.
+</h2>
+
+<p class="demoP">
+  The two logged in pages in this Demo, are to show that sessionExpiration acts in all tabs at once.
+  Meaning; you don't get logged out in one tab, if you are active in any other tab with the following lines of code.
+</p>
+
+<p class="demoP">
+  Change parameters "idleMinutes" and "warningMinutes" yourself. Right now, they are set to logout after 0.6 idle minutes
+  (36 seconds), but already after 0.05 minutes (3 seconds) the red warning banner starts displaying. As soon as you interact
+  with mouse or keyboard, the banner disappears, and the countdown restarts from 0.
+</p>
+
+<p class="demoP">
+  For the demo to work, you have to set the correct paths to sessionExpiration.js, as well as to logged_out.html.
+</p>
+
+<!-- Include footer. But to make the demo easier we have a copy of the code. -->
+
+<script type="text/javascript" src="http://localhost/sessionExpiration.js"></script>
+
+<script type="text/javascript">
+  sessionExpiration(idleMinutes = 0.6, warningMinutes = 0.05, logoutUrl = 'http://localhost/logged_out.html');
+</script>
+
+</body>
+
+</html>
