@@ -18,6 +18,7 @@
 /******************************************************************************************************************
  ░░░░ CSS VALUE SUGGESTIONS ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
  * #sessExpirDiv {
+ *   display: none; /* For Firefox, where opacity isn't taken into account before loading page.
  *   border: none;
  *   background-color: #FF6666;
  *   color: #FFF;
@@ -57,10 +58,13 @@ function sessionExpiration(idleMinInput, warningMinInput, logoutUrl) {
   window.onclick = resetTimer; /* Touchpad clicks. */
   window.onscroll = resetTimer; /* Scrolling with arrow keys. */
   function warning(idleSeconds, warningSeconds) {
+    bannerDisplay = setTimeout(function(){
+      sessExpirDiv.style.display = 'inline-block';
+    }, 100); /* In Firefox opacity isn't taken into account before the page and div load. Without this the banner would flicker upon page load. */
     warningStart = setTimeout(function(){
       sessExpirDiv.style.opacity = '1';
       sessExpirDiv.style.zIndex = '999999';
-    }, 1000); /* Wtihout this, warning div would appear before the text. */
+    }, 1100); /* Wtihout this, warning div would appear before the text. */
     remaining = idleSeconds - warningSeconds;
     warningCountdown = setInterval(function() { /* Update every 1 second. */
       if(remaining <= 0) {
