@@ -16,7 +16,7 @@
  * expiration is not included in demo. For instructions in regards to that, see comments below here.)
  ******************************************************************************************************************/
 
- /******************************************************************************************************************
+/******************************************************************************************************************
   ░░░░ OPTIONAL: SERVER END REFRESH ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
  * The benefit of using server end session expiration too, is that your user is logged out if he/she has kept the
  * browser window or browser closed for more than the defined duration of time.
