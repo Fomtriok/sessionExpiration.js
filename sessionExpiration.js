@@ -63,7 +63,7 @@
  * </div>
  ******************************************************************************************************************/
 
-function sessionExpiration(idleMinInput, warningMinInput, logoutUrl) {
+function sessionExpiration(idleMinInput, warningMinInput, logoutUrl, serverRefresh = 'none') {
   var t;
   var activeTime;
   var oldActiveTime; /* Only used if serverRefresh URL is provided. */
