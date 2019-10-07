@@ -17,7 +17,7 @@
  ******************************************************************************************************************/
 
 /******************************************************************************************************************
-  ░░░░ OPTIONAL: SERVER END REFRESH ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+ ░░░░ OPTIONAL: SERVER END REFRESH ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
  * The benefit of using server end session expiration too, is that your user is logged out if he/she has kept the
  * browser window or browser closed for more than the defined duration of time.
  *    If the serverRefresh URL is provided as an argument, the serverRefresh() function refreshes a timer on server
