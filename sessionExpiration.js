@@ -20,7 +20,7 @@
  ░░░░ OPTIONAL: SERVER END REFRESH ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
  * The benefit of using server end session expiration too, is that your user is logged out if he/she has kept the
  * browser window or browser closed for more than the defined duration of time.
- *    If the serverRefresh URL is provided as an argument, the serverRefresh() function refreshes a timer on server
+ *    If the serverRefresh URL is provided as an argument, the refreshServer() function refreshes a timer on server
  * end too, granted you have such a script [an example for PHP is provided by the name "serverRefresh.php"]. Notice:
  * Set the server session expiration time to +1 minute more than the client side. Thus, we avoid situations where
  * user has lost server session without knowing.
@@ -77,7 +77,7 @@ function sessionExpiration(idleMinInput, warningMinInput, logoutUrl, serverRefre
   window.onclick = resetTimer; /* Touchpad clicks. */
   window.onscroll = resetTimer; /* Scrolling with arrow keys. */
   if(serverRefresh !== 'none') {
-    serverRefresh();
+    refreshServer();
   }
   function warning(idleSeconds, warningSeconds) {
     bannerDisplay = setTimeout(function(){
@@ -136,7 +136,7 @@ function sessionExpiration(idleMinInput, warningMinInput, logoutUrl, serverRefre
     t = setTimeout(function(){ warning(idleSeconds, warningSeconds); }, wMilliSeconds);
   }
   /* Optional. This is used only if you have a server end session timer too, and provide the URL serverRefresh. */
-  function serverRefresh() {
+  function refreshServer() {
     setInterval(function() {
       if(activeTime !== oldActiveTime) { /* Then user has been active in the last 50 seconds. */
         var xhr = new XMLHttpRequest();
