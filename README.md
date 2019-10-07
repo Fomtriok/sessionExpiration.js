@@ -31,6 +31,11 @@ A lightweight session expiration tool in pure JS without any dependencies.
 ```
 sessionExpiration(idleMinutes = 1, warningMinutes = 0.5, logoutUrl = 'http://localhost/path/to/logout');
 ```
+
+### Optional - Server end session expiration too:
+
+5. Include as a fourth argument the URL of your refresh_session page (an example for php is provided by the name refresh_session.php). This is however advisable to implement, since it expires any session which the user has not been active in, even if the user has closed the browser window or browser. (For more detailed instructions, see the comments in the sessionExpiration.js file.)
+
 ...  
 ---
 
