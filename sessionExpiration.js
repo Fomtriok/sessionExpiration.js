@@ -12,7 +12,24 @@
 
 /******************************************************************************************************************
  ░░░░ DEMO ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
- * There exist a simple demo. Its instructions can be found in its own readme file.
+ * There exist a simple demo. Its instructions for it can be found in its own readme file. (Server end session
+ * expiration is not included in demo. For instructions in regards to that, see comments below here.)
+ ******************************************************************************************************************/
+
+ /******************************************************************************************************************
+  ░░░░ OPTIONAL: SERVER END REFRESH ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+ * The benefit of using server end session expiration too, is that your user is logged out if he/she has kept the
+ * browser window or browser closed for more than the defined duration of time.
+ *    If the serverRefresh URL is provided as an argument, the serverRefresh() function refreshes a timer on server
+ * end too, granted you have such a script [an example for PHP is provided by the name "serverRefresh.php"]. Notice:
+ * Set the server session expiration time to +1 minute more than the client side. Thus, we avoid situations where
+ * user has lost server session without knowing.
+ *    This is because: To economize the number of requests, we check user activity [for the purpose of a server
+ * request] only once every 50 seconds. [You can customize this though, by changing the serverInterval value.] This
+ * means the data reaching our server side session timer has a delay of up to 50 seconds. If you for instance set
+ * the client side session expiration to 5 minutes, and the server side session expiration to 6 minutes, that gives
+ * you 10 seconds of margin, which is very generous. But as stated, you can edit all these settings to your liking,
+ * and for instance keep serverInterval at 1 second.
  ******************************************************************************************************************/
 
 /******************************************************************************************************************
@@ -49,6 +66,8 @@
 function sessionExpiration(idleMinInput, warningMinInput, logoutUrl) {
   var t;
   var activeTime;
+  var oldActiveTime; /* Only used if serverRefresh URL is provided. */
+  var serverInterval = 50; /* Seconds. If serverRefresh URL is provided, at what interval to you want to contact server? */
   var warningCountdown;
   var sessExpirDiv = document.getElementById('sessExpirDiv');
   window.onload = resetTimer; /* Window is refreshed. */
@@ -57,6 +76,9 @@ function sessionExpiration(idleMinInput, warningMinInput, logoutUrl) {
   window.onmousedown = resetTimer; /* Touchscreen is pressed. */
   window.onclick = resetTimer; /* Touchpad clicks. */
   window.onscroll = resetTimer; /* Scrolling with arrow keys. */
+  if(serverRefresh !== 'none') {
+    serverRefresh();
+  }
   function warning(idleSeconds, warningSeconds) {
     bannerDisplay = setTimeout(function(){
       sessExpirDiv.style.display = 'inline-block';
@@ -112,5 +134,16 @@ function sessionExpiration(idleMinInput, warningMinInput, logoutUrl) {
     var wMilliSeconds = warningSeconds * 1000;
     /* When user has been idle warningSeconds number of seconds, we display warning and countdown. */
     t = setTimeout(function(){ warning(idleSeconds, warningSeconds); }, wMilliSeconds);
+  }
+  /* Optional. This is used only if you have a server end session timer too, and provide the URL serverRefresh. */
+  function serverRefresh() {
+    setInterval(function() {
+      if(activeTime !== oldActiveTime) { /* Then user has been active in the last 50 seconds. */
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', serverRefresh);
+        xhr.send(null);
+        oldActiveTime = activeTime;
+      }
+    }, serverInterval * 1000);
   }
 };
