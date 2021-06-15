@@ -89,8 +89,7 @@ function sessionExpiration(idleMinutes, warningMinutes, logoutUrl, serverRefresh
       sessExpirDiv.style.opacity = '1';
       sessExpirDiv.style.zIndex = '999999';
     }, 1100); /* Without this, warning div would appear before the text. */
-    var timerMax = idleSeconds - warningSeconds;
-    var remaining = timerMax;
+    var remaining = idleSeconds - warningSeconds;
     warningCountdown = setInterval(function() { /* Runs every 1 second. */
       var browserActive = parseInt(localStorage.getItem('activeTime')); /* In case other tab has been active more recently. */
       if(remaining <= 0) {
