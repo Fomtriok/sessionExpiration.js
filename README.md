@@ -1,9 +1,9 @@
 # sessionExpiration.js
 A lightweight session expiration tool in pure JS without any dependencies.
 
-* Works across all tabs in the browser (that are part of your domain), that you call this function from. The user won't be logged out as long as at least some (of those) tabs is being regularly used.
+* Works across all tabs in the browser (that are part of your domain), that you call this function from. The user won't be logged out as long as at least one (of those) tabs is being regularly used.
 * Includes countdown and warning to move in order to remain logged in.
-* Function takes optional URL as fourth argument, for the purpose of server side session refresh too. For detailed instructions, see the comments in sessionExpiration.js.
+* Function takes optional URL as fourth argument, for the purpose of server-side session refresh too. For detailed instructions, see the comments in sessionExpiration.js.
 
 ### How to use:
 
@@ -27,15 +27,15 @@ A lightweight session expiration tool in pure JS without any dependencies.
 #sessExpirP { }
 ```
 
-4. Call the function (from each page you included the script in, thus also; preferably from your footer) along with the arguments [1] number of minutes the user is allowed to be idle, [2] number of minutes the user is allowed to be idle before the warning and countdown begins, [3] the url for your server side logout.
+4. Call the function (from each page you included the script in, thus also; preferably from your footer) along with the arguments [1] number of minutes the user is allowed to be idle, [2] number of minutes the user is allowed to be idle before the warning and countdown begins, [3] the url for your server-side logout.
 
 ```
 sessionExpiration(idleMinutes = 1, warningMinutes = 0.5, logoutUrl = 'http://localhost/path/to/logout');
 ```
 
-_Notice: The only way to enforce client side logout with absolute certainty, is by redirecting all tabs to the logoutUrl. Therefore, if you want the redirects to behave differently, the safe way to do this is by redirecting the user on the server end, in the script found at logoutUrl._
+_Notice: The only way to enforce client side logout with absolute certainty, is by redirecting all tabs to the logoutUrl. Therefore, if you want the redirects to behave differently, the safe way to do this is by redirecting the user on the backend, in the script found at logoutUrl._
 
-### Optional - Server end session expiration too:
+### Optional - Server-side session expiration too:
 
 5. Include as a fourth argument the URL of your refresh_session page (an example for php is provided by the name refresh_session.php). This is however advisable to implement, since it expires any session which the user has not been active in, even if the user has closed the browser window or browser. (For more detailed instructions, see the comments in the sessionExpiration.js file.)
 
