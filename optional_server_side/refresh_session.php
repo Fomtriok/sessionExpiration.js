@@ -1,6 +1,6 @@
-/* This functionality is optional, for server end session expiration too - which however is advisable to implement. */
+/* This functionality is optional, for server-side session expiration too - which however is advisable to implement. */
 
-/* Keep this on top of every page user is logged in into.
+/* (1) Keep this on top of every page user is logged in into.
 session_start();
 if(isset($_SESSION['user_ID'])) {
   if(isset($_SESSION['last_activity']) && $_SESSION['last_activity'] < time() - '360') {
@@ -12,7 +12,7 @@ if(isset($_SESSION['user_ID'])) {
   }
 } */
 
-/* And this is the actual code for the refresh_session.php script. */
+/* (2) And this is the actual code for the refresh_session.php script called from refreshServer() in sessionExpiration.js. */
 session_start();
 if(isset($_SESSION['user_ID'])) {
   $_SESSION['last_activity'] = time();
