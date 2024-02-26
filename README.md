@@ -41,7 +41,6 @@ _Notice: The only way to enforce client side logout with absolute certainty, is 
 
 5. Include as a fourth argument the URL of your refresh_session page (an example for php is provided by the name refresh_session.php). This is however advisable to implement, since it expires any session which the user has not been active in, even if the user has closed the browser window or browser. (For more detailed instructions, see the comments in the sessionExpiration.js file.)
 
-...  
 ---
 
 This is an example of what it looks like in action, if you don't change the CSS:
